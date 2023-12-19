@@ -2,7 +2,6 @@ package HangMan_2023
 
 import (
 	"bufio"
-	"fmt"
 	"math/rand"
 	"os"
 )
@@ -54,25 +53,17 @@ func getRandomWordFromList(words []string) string {
 
 func getUserGuess() string {
 	var guess string
-	fmt.Print("Entrer une lettre ")
-	fmt.Scanln(&guess)
 	return guess
 }
 
 func displayGameStatus(word string, found []string, attemptsRemaining int, stage []string) {
-	fmt.Println("\nmot a trouver")
 	displayWord(word, found)
-	fmt.Println("\nessais restant", attemptsRemaining)
-	fmt.Println(stage[maxAttempts-attemptsRemaining])
 }
 
 func displayWord(word string, found []string) {
 	for _, letter := range word {
 		if contains(found, string(letter)) {
-			fmt.Print(string(letter), " ")
 		} else {
-			fmt.Print("_ ")
 		}
 	}
-	fmt.Println()
 }
